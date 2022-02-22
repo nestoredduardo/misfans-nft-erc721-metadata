@@ -1,8 +1,20 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect } from 'react'
 
 const Home: NextPage = () => {
+  const getNFTMetadata = async (address: string) => {
+    const response = await fetch(`/api/getNFTmetadata?address=${address}`)
+    const data = await response.json()
+    console.log(data)
+  }
+
+  useEffect(() => {
+    const address = '0x14e0a1f310e2b7e321c91f58847e98b8c802f6ef'
+    getNFTMetadata(address)
+  }, [])
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
