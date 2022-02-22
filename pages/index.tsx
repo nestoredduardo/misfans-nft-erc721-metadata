@@ -18,11 +18,11 @@ const Home: NextPage = () => {
   }
 
   useEffect(() => {
-    const address = '0x495f947276749Ce646f68AC8c248420045cb7b5e'
+    const address = '0x2953399124f0cbb46d2cbacd8a89cf0599974963'
     const tokenId =
-      '23005389916031419495497068831589288009900632785309905146382078593927875657729'
+      '67442861663334708568431626599499864796798009138674433109352764902689030012929'
     const standar = 'ERC1155'
-    const chain = 'ETH'
+    const chain = 'POLY'
     getNFTMetadata(address, tokenId, standar, chain)
   }, [])
 
