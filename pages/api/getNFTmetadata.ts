@@ -4,6 +4,7 @@ import { AbiItem } from 'web3-utils'
 
 //libraries
 import Web3 from 'web3'
+import { numberToHex, toBN } from 'web3-utils'
 
 //local files
 import Abi721 from '@utils/ERC721.json'
@@ -40,6 +41,9 @@ const getNFTMetadata = async (
           )
 
           uriInfo = await contract1155.methods.uri(tokenId).call()
+          const idHex = numberToHex(tokenId)
+          console.log(idHex)
+          console.log(uriInfo)
         default:
           break
       }
