@@ -7,21 +7,22 @@ const Home: NextPage = () => {
   const getNFTMetadata = async (
     address: string,
     tokenId: string,
-    standar: string
+    standar: string,
+    chain: string
   ) => {
     const response = await fetch(
-      `/api/getNFTmetadata?address=${address}&tokenId=${tokenId}&standar=${standar}`
+      `/api/getNFTmetadata?address=${address}&tokenId=${tokenId}&standar=${standar}&chain=${chain}`
     )
     const data = await response.json()
     console.log(data)
   }
 
   useEffect(() => {
-    const address = '0x495f947276749ce646f68ac8c248420045cb7b5e'
-    const tokenId =
-      '23005389916031419495497068831589288009900632785309905146382150640526797307905'
-    const standar = 'ERC1155'
-    getNFTMetadata(address, tokenId, standar)
+    const address = '0x3CD266509D127d0Eac42f4474F57D0526804b44e'
+    const tokenId = '6189'
+    const standar = 'ERC721'
+    const chain = 'POLY'
+    getNFTMetadata(address, tokenId, standar, chain)
   }, [])
 
   return (
