@@ -4,15 +4,24 @@ import Image from 'next/image'
 import { useEffect } from 'react'
 
 const Home: NextPage = () => {
-  const getNFTMetadata = async (address: string) => {
-    const response = await fetch(`/api/getNFTmetadata?address=${address}`)
+  const getNFTMetadata = async (
+    address: string,
+    tokenId: string,
+    standar: string
+  ) => {
+    const response = await fetch(
+      `/api/getNFTmetadata?address=${address}&tokenId=${tokenId}&standar=${standar}`
+    )
     const data = await response.json()
     console.log(data)
   }
 
   useEffect(() => {
-    const address = '0x14e0a1f310e2b7e321c91f58847e98b8c802f6ef'
-    getNFTMetadata(address)
+    const address = '0x495f947276749ce646f68ac8c248420045cb7b5e'
+    const tokenId =
+      '23005389916031419495497068831589288009900632785309905146382150640526797307905'
+    const standar = 'ERC1155'
+    getNFTMetadata(address, tokenId, standar)
   }, [])
 
   return (
