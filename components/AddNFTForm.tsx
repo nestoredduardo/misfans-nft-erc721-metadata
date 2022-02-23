@@ -14,9 +14,9 @@ enum StandarEnum {
 }
 
 type Inputs = {
-  blockchain: BlockchainEnum
+  chain: BlockchainEnum
   standar: StandarEnum
-  contractAddress: string
+  address: string
   tokenId: string
 }
 
@@ -32,7 +32,7 @@ const AddNFTForm: React.FC<NFTFormTypes> = ({ addNftMetadata }) => {
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
       <label className="mt-3">Blockchain</label>
       <select
-        {...register('blockchain')}
+        {...register('chain')}
         className="cursor-pointer rounded-2xl border border-backLight bg-back py-3 px-4"
       >
         <option value="ETH" className="bg-[#1e1e1e] py-3 px-4">
@@ -57,7 +57,7 @@ const AddNFTForm: React.FC<NFTFormTypes> = ({ addNftMetadata }) => {
       <input
         className="mt-3 rounded-t-xl border border-backLight bg-transparent py-2 px-3"
         type="text"
-        {...register('contractAddress')}
+        {...register('address')}
         placeholder="Contract address"
         required
         autoComplete="off"

@@ -27,11 +27,12 @@ const reducer = (state = initialState, action) => {
       return { ...state, loading: true, error: false }
     case ADD_NFT_METADATA_SUCCESS:
       if (action.payload.id) {
+        console.log(action.payload.id)
         return {
           ...state,
           loading: false,
           list: state.list.map((item) => {
-            if (item.id == id) {
+            if (item.id == action.payload.id) {
               return { ...item, metadata: action.payload.metadata }
             }
           }),

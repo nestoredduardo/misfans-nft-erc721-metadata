@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import { showModal } from '@modalActions'
 
+import NFTList from '@components/NFTList'
+
 import nftIcon from '@icons/nfts.svg'
 import mediaIcon from '@icons/media.svg'
 import linkIcon from '@icons/link.svg'
@@ -96,6 +98,7 @@ const Main: React.FC<MainProps> = ({ showModal }) => {
             </li>
           </ul>
         </section>
+        <NFTList />
       </main>
     </>
   )

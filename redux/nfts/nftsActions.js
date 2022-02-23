@@ -5,20 +5,20 @@ import {
 } from './nftsType.ts'
 
 const addNftMetadata =
-  ({ id, contractAddress, tokenId, standar, blockchain }) =>
+  ({ id, address, tokenId, standar, chain }) =>
   async (dispatch) => {
     dispatch({
       type: ADD_NFT_METADATA,
     })
     try {
       const data = {
-        address: contractAddress,
-        tokenId: tokenId,
-        standar: standar,
-        chain: blockchain,
+        address,
+        tokenId,
+        standar,
+        chain,
       }
       const response = await fetch(
-        `/api/getNFTmetadata?address=${contractAddress}&tokenId=${tokenId}&standar=${standar}&chain=${blockchain}`
+        `/api/getNFTmetadata?address=${address}&tokenId=${tokenId}&standar=${standar}&chain=${chain}`
       )
       const { metadata } = await response.json()
       console.log(metadata)
