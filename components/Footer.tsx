@@ -13,7 +13,7 @@ const LandingFooter: React.FC = () => {
         <Image src={githubLogo} layout="fill" />
       </a>
       <h3 className="text-center text-white">
-        Hecho con 💚 y ☕ por{' '}
+        Hecho para divertirse un rato con 👨‍💻 y ☕ por{' '}
         <a
           href="https://www.nestoredduardo.me/"
           target="_blank"
