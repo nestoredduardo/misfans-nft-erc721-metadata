@@ -33,7 +33,7 @@ const Main: React.FC<MainProps> = ({ showModal }) => {
           </button>
         </section>
         <section
-          className={`absolute right-3 top-14 w-72 rounded-md border border-gray-500 border-opacity-40 bg-back ${
+          className={`absolute right-3 top-14 z-10 w-72 rounded-md border border-gray-500 border-opacity-40 bg-back ${
             !showAddBlock && 'hidden'
           }`}
         >

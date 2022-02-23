@@ -27,6 +27,7 @@ const call721Contract = async (
   const contract721 = new web3.eth.Contract(Abi721 as AbiItem[], address)
 
   const uriInfo = await contract721.methods.tokenURI(tokenId).call()
+  console.log(uriInfo)
   const response = await fetch(uriInfo)
   const data = await response.json()
   return data

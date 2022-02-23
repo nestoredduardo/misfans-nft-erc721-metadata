@@ -2,6 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { connect } from 'react-redux'
 
 import { addNftMetadata } from '@nftsActions'
+import { hideModal } from '@modalActions'
 
 enum BlockchainEnum {
   ETH = 'ETH',
@@ -22,11 +23,15 @@ type Inputs = {
 
 type NFTFormTypes = {
   addNftMetadata: Function
+  hideModal: Function
 }
 
-const AddNFTForm: React.FC<NFTFormTypes> = ({ addNftMetadata }) => {
+const AddNFTForm: React.FC<NFTFormTypes> = ({ addNftMetadata, hideModal }) => {
   const { register, handleSubmit } = useForm<Inputs>()
-  const onSubmit: SubmitHandler<Inputs> = (data) => addNftMetadata({ ...data })
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    addNftMetadata({ ...data })
+    hideModal()
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
@@ -82,6 +87,7 @@ const AddNFTForm: React.FC<NFTFormTypes> = ({ addNftMetadata }) => {
 
 const mapDispatchToProps = {
   addNftMetadata,
+  hideModal,
 }
 
 export default connect(null, mapDispatchToProps)(AddNFTForm)

@@ -27,7 +27,6 @@ const reducer = (state = initialState, action) => {
       return { ...state, loading: true, error: false }
     case ADD_NFT_METADATA_SUCCESS:
       if (action.payload.id) {
-        console.log(action.payload.id)
         return {
           ...state,
           loading: false,

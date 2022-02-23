@@ -7,36 +7,15 @@ import Header from '@components/Header'
 import Nav from '@components/Nav'
 import Main from '@components/Main'
 import Modal from '@components/Modal'
+import Footer from '@components/Footer'
 
 type HomeProps = {
   showModalState: boolean
 }
 
 const Home: NextPage<HomeProps> = ({ showModalState }) => {
-  /* const getNFTMetadata = async (
-    address: string,
-    tokenId: string,
-    standar: string,
-    chain: string
-  ) => {
-    const response = await fetch(
-      `/api/getNFTmetadata?address=${address}&tokenId=${tokenId}&standar=${standar}&chain=${chain}`
-    )
-    const data = await response.json()
-    console.log(data)
-  }
-
-  useEffect(() => {
-    const address = '0x2953399124f0cbb46d2cbacd8a89cf0599974963'
-    const tokenId =
-      '67442861663334708568431626599499864796798009138674433109352764902689030012929'
-    const standar = 'ERC1155'
-    const chain = 'POLY'
-    getNFTMetadata(address, tokenId, standar, chain)
-  }, []) */
-
   return (
-    <div className="min-h-screen  bg-black text-white">
+    <div className="flex min-h-screen flex-col bg-black pb-10 text-white">
       <Head>
         <title>MisFans | Dashboard</title>
         <link rel="icon" href="/favicon.ico" />
@@ -46,6 +25,8 @@ const Home: NextPage<HomeProps> = ({ showModalState }) => {
       <Header />
       <Nav />
       <Main />
+
+      <Footer />
     </div>
   )
 }
