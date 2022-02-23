@@ -5,6 +5,7 @@ import Head from 'next/head'
 import Header from '@components/Header'
 import Nav from '@components/Nav'
 import Main from '@components/Main'
+import Modal from '@components/Modal'
 
 const Home: NextPage = () => {
   /* const getNFTMetadata = async (
@@ -35,6 +36,7 @@ const Home: NextPage = () => {
         <title>MisFans | Dashboard</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Modal />
 
       <Header />
       <Nav />
