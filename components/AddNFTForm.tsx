@@ -1,4 +1,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { connect } from 'react-redux'
+
+import { addNftMetadata } from '@nftsActions'
 
 enum BlockchainEnum {
   ETH = 'ETH',
@@ -17,9 +20,13 @@ type Inputs = {
   tokenId: string
 }
 
-const AddNFTForm: React.FC = () => {
+type NFTFormTypes = {
+  addNftMetadata: Function
+}
+
+const AddNFTForm: React.FC<NFTFormTypes> = ({ addNftMetadata }) => {
   const { register, handleSubmit } = useForm<Inputs>()
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+  const onSubmit: SubmitHandler<Inputs> = (data) => addNftMetadata({ ...data })
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
@@ -53,6 +60,7 @@ const AddNFTForm: React.FC = () => {
         {...register('contractAddress')}
         placeholder="Contract address"
         required
+        autoComplete="off"
       />
       <input
         className="rounded-b-xl border border-backLight bg-transparent py-2 px-3"
@@ -60,6 +68,7 @@ const AddNFTForm: React.FC = () => {
         {...register('tokenId')}
         placeholder="Token Id"
         required
+        autoComplete="off"
       />
       <button
         className="my-5 rounded-2xl bg-gradient-to-r from-[#da22ff] to-brand py-3 px-5 hover:bg-opacity-90"
@@ -71,4 +80,8 @@ const AddNFTForm: React.FC = () => {
   )
 }
 
-export default AddNFTForm
+const mapDispatchToProps = {
+  addNftMetadata,
+}
+
+export default connect(null, mapDispatchToProps)(AddNFTForm)

@@ -20,7 +20,7 @@
       "@images/*": ["public/images/*"],
       "@icons/*": ["public/icons/*"],
       "@store": ["redux/store.ts"],
-      "@nftActions": ["redux/projects/nftActions.js"],
+      "@nftsActions": ["redux/nfts/nftsActions.js"],
       "@modalActions": ["redux/modal/modalActions.js"],
       "@utils/*": ["utils/*"]
     }
@@ -30,7 +30,8 @@
     "**/*.ts",
     "**/*.tsx",
     "redux/modal/modalReducer.s",
-    "redux/modal/modalActions.js"
+    "redux/modal/modalActions.js",
+    "components/AddNFTForm.jsx"
   ],
   "exclude": ["node_modules"]
 }
