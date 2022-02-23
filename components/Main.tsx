@@ -20,20 +20,20 @@ const Main: React.FC<MainProps> = ({ showModal }) => {
 
   return (
     <>
-      <main className="relative p-3">
+      <main className="relative p-3 md:px-10 lg:px-16 xl:px-52">
         <section className="flex items-center">
-          <h2 className="text-xl font-medium">BLOQUES</h2>
+          <h2 className="text-xl font-medium xl:text-3xl">BLOQUES</h2>
           <button
             onClick={() => {
               setShowAddBlock(!showAddBlock)
             }}
-            className="ml-auto rounded-3xl bg-brand px-3 py-2 text-sm focus:bg-opacity-70"
+            className="ml-auto rounded-3xl bg-brand px-3 py-2 text-sm focus:bg-opacity-70 xl:text-lg"
           >
             AÑADIR UN BLOQUE
           </button>
         </section>
         <section
-          className={`absolute right-3 top-14 z-10 w-72 rounded-md border border-gray-500 border-opacity-40 bg-back ${
+          className={`absolute right-3 top-14 z-10 w-72 rounded-md border border-gray-500 border-opacity-40 bg-back xl:top-16 xl:right-52 ${
             !showAddBlock && 'hidden'
           }`}
         >

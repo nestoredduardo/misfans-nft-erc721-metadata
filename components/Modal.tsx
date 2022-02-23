@@ -24,7 +24,7 @@ const Modal: React.FC<ModalProps> = ({ hideModal }) => {
     >
       <div
         onClick={stopPropagation}
-        className="z-20 w-11/12 rounded-xl border border-gray-500 border-opacity-50 bg-black p-3"
+        className="z-20 w-11/12 rounded-xl border border-gray-500 border-opacity-50 bg-black p-3 md:w-8/12 lg:w-6/12 xl:w-4/12"
       >
         <div className="mb-2 flex items-center">
           <p className="font-medium">AÑADE NFTS A TU PERFIL</p>

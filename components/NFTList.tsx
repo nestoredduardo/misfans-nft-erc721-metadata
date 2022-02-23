@@ -18,7 +18,7 @@ const NFTList: React.FC<NFTListTypes> = ({ list, loading, addNftMetadata }) => {
   }, [])
 
   return (
-    <section className="my-8 flex flex-col gap-3">
+    <section className="my-8 mx-auto flex max-w-sm flex-col gap-3">
       {list.map((item) => {
         if (item.metadata.image) {
           return (

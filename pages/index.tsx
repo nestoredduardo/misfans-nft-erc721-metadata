@@ -15,7 +15,7 @@ type HomeProps = {
 
 const Home: NextPage<HomeProps> = ({ showModalState }) => {
   return (
-    <div className="flex min-h-screen flex-col bg-black pb-10 text-white">
+    <div className="flex min-h-screen flex-col bg-black pb-4 text-white">
       <Head>
         <title>MisFans | Dashboard</title>
         <link rel="icon" href="/favicon.ico" />

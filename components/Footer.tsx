@@ -5,10 +5,14 @@ import githubLogo from '@icons/github.svg'
 const LandingFooter: React.FC = () => {
   return (
     <footer className="mt-auto flex flex-col items-center">
-      <div className="relative mb-2 h-8 w-8">
+      <a
+        href="https://github.com/nestoredduardo/misfans-nft-erc721-metadata"
+        target="_blank"
+        className="relative mb-2 h-8 w-8 lg:h-12 lg:w-12"
+      >
         <Image src={githubLogo} layout="fill" />
-      </div>
-      <h3 className="text-center text-sm text-white">
+      </a>
+      <h3 className="text-center text-white">
         Hecho con 💚 y ☕ por{' '}
         <a
           href="https://www.nestoredduardo.me/"
