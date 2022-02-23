@@ -20,9 +20,18 @@
       "@components/*": ["components/*"],
       "@images/*": ["public/images/*"],
       "@icons/*": ["public/icons/*"],
+      "@store": ["redux/store.ts"],
+      "@nftActions": ["redux/projects/nftActions.js"],
+      "@modalActions": ["redux/modal/modalActions.js"],
       "@utils/*": ["utils/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "redux/modal/modalReducer.s",
+    "redux/modal/modalActions.js"
+  ],
   "exclude": ["node_modules"]
 }
