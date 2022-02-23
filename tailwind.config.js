@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         brand: '#6436fe',
         back: '#121212',
+        backLight: '#222',
       },
     },
   },

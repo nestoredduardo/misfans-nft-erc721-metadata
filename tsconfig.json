@@ -16,7 +16,6 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@database": ["database/db.ts"],
       "@components/*": ["components/*"],
       "@images/*": ["public/images/*"],
       "@icons/*": ["public/icons/*"],

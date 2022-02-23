@@ -1,12 +1,19 @@
 import Image from 'next/image'
 import { useState } from 'react'
+import { connect } from 'react-redux'
+
+import { showModal } from '@modalActions'
 
 import nftIcon from '@icons/nfts.svg'
 import mediaIcon from '@icons/media.svg'
 import linkIcon from '@icons/link.svg'
 import dividerIcon from '@icons/divider.svg'
 
-const Main: React.FC = () => {
+type MainProps = {
+  showModal: () => void
+}
+
+const Main: React.FC<MainProps> = ({ showModal }) => {
   const [showAddBlock, setShowAddBlock] = useState(false)
 
   return (
@@ -29,7 +36,13 @@ const Main: React.FC = () => {
           }`}
         >
           <ul className="flex flex-col">
-            <li className="flex items-center gap-3 border-b border-gray-500 border-opacity-40 p-3 hover:bg-black">
+            <li
+              onClick={() => {
+                showModal()
+                setShowAddBlock(false)
+              }}
+              className="flex items-center gap-3 border-b border-gray-500 border-opacity-40 p-3 hover:bg-black"
+            >
               <div className="h-fit rounded-md border-2 border-gray-500 border-opacity-20 p-2">
                 <div className="relative h-6 w-6">
                   <Image src={nftIcon} layout="fill" />
@@ -88,4 +101,8 @@ const Main: React.FC = () => {
   )
 }
 
-export default Main
+const mapDispatchToProps = {
+  showModal,
+}
+
+export default connect(null, mapDispatchToProps)(Main)

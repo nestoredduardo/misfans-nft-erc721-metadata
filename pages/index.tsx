@@ -1,13 +1,18 @@
 import type { NextPage } from 'next'
 
 import Head from 'next/head'
+import { connect } from 'react-redux'
 
 import Header from '@components/Header'
 import Nav from '@components/Nav'
 import Main from '@components/Main'
 import Modal from '@components/Modal'
 
-const Home: NextPage = () => {
+type HomeProps = {
+  showModalState: boolean
+}
+
+const Home: NextPage<HomeProps> = ({ showModalState }) => {
   /* const getNFTMetadata = async (
     address: string,
     tokenId: string,
@@ -36,7 +41,7 @@ const Home: NextPage = () => {
         <title>MisFans | Dashboard</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Modal />
+      {showModalState && <Modal />}
 
       <Header />
       <Nav />
@@ -45,4 +50,8 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+const mapStateToProps = (state: any) => ({
+  showModalState: state.modal.show,
+})
+
+export default connect(mapStateToProps, null)(Home)
