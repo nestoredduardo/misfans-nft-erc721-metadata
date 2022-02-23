@@ -1,10 +1,21 @@
 import type { NextPage } from 'next'
+
 import Head from 'next/head'
 import Image from 'next/image'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
+import misFansLogo from '@images/MF_logo.svg'
+import profileImg from '@images/profileImage.png'
+import blocksIcon from '@icons/bloques.svg'
+import moneyIcon from '@icons/money.svg'
+import notificationsIcon from '@icons/notifications.svg'
+import analyticsIcon from '@icons/analytics.svg'
+import settingsIcon from '@icons/settings.svg'
 
 const Home: NextPage = () => {
-  const getNFTMetadata = async (
+  const [currentTab, setCurrentTab] = useState('BLOQUES')
+
+  /* const getNFTMetadata = async (
     address: string,
     tokenId: string,
     standar: string,
@@ -24,84 +35,90 @@ const Home: NextPage = () => {
     const standar = 'ERC1155'
     const chain = 'POLY'
     getNFTMetadata(address, tokenId, standar, chain)
-  }, [])
+  }, []) */
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className=" min-h-screen  bg-black text-white">
       <Head>
-        <title>Create Next App</title>
+        <title>MisFans | Dashboard</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+      <header className="flex items-center border-b border-gray-500 border-opacity-50 p-3">
+        <section className="relative h-5 w-24 ">
+          <Image src={misFansLogo} layout="fill" />
+        </section>
+        <section className="ml-auto flex items-center gap-2 rounded-md p-2 hover:bg-neutral-800">
+          <div className="relative h-8 w-8">
+            <Image src={profileImg} layout="fill" className=" rounded-full" />
+          </div>
+          <p className="font-medium">Nestor Mamani</p>
+        </section>
+      </header>
+      <nav className="overflow-x-auto border-b border-gray-500 border-opacity-50  px-3 py-4">
+        <ul className="flex gap-1">
+          <li
+            className={`flex items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
+              currentTab == 'BLOQUES' && 'bg-brand'
+            }`}
           >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+            <div className="relative h-4 w-4">
+              <Image src={blocksIcon} layout="fill" />
+            </div>
+            <p className="text-sm font-normal">BLOQUES</p>
+          </li>
+          <li
+            className={`flex items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
+              currentTab == 'MONETIZACIÓN' && 'bg-brand'
+            }`}
           >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+            <div className="relative h-4 w-4">
+              <Image src={moneyIcon} layout="fill" />
+            </div>
+            <p className="text-sm font-normal">MONETIZACIÓN</p>
+          </li>
+          <li
+            className={`flex items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
+              currentTab == 'SUSCRIPCIONES' && 'bg-brand'
+            }`}
           >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+            <div className="relative h-4 w-4">
+              <Image src={moneyIcon} layout="fill" />
+            </div>
+            <p className="text-sm font-normal">SUSCRIPCIONES</p>
+          </li>
+          <li
+            className={`flex items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
+              currentTab == 'NOTIFICACIÓN' && 'bg-brand'
+            }`}
           >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
+            <div className="relative h-4 w-4">
+              <Image src={notificationsIcon} layout="fill" />
+            </div>
+            <p className="text-sm font-normal">NOTIFICACIÓN</p>
+          </li>
+          <li
+            className={`flex items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
+              currentTab == 'ANALÍTICAS' && 'bg-brand'
+            }`}
+          >
+            <div className="relative h-4 w-4">
+              <Image src={analyticsIcon} layout="fill" />
+            </div>
+            <p className="text-sm font-normal">ANALÍTICAS</p>
+          </li>
+          <li
+            className={`flex items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
+              currentTab == 'AJUSTES' && 'bg-brand'
+            }`}
+          >
+            <div className="relative h-4 w-4">
+              <Image src={settingsIcon} layout="fill" />
+            </div>
+            <p className="text-sm font-normal">AJUSTES</p>
+          </li>
+        </ul>
+      </nav>
     </div>
   )
 }

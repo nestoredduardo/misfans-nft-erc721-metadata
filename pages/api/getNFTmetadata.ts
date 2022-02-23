@@ -80,16 +80,20 @@ const handleGetNFTmetadata = async (
   req: NextApiRequest,
   res: NextApiResponse
 ) => {
-  const { address, tokenId, standar, chain } = req.query
+  try {
+    const { address, tokenId, standar, chain } = req.query
 
-  const metadata = await getNFTMetadata(
-    address as string,
-    tokenId as string,
-    standar as string,
-    chain as string
-  )
+    const metadata = await getNFTMetadata(
+      address as string,
+      tokenId as string,
+      standar as string,
+      chain as string
+    )
 
-  res.status(200).json({ ...metadata })
+    res.status(200).json({ ...metadata })
+  } catch (error) {
+    res.status(404).json({ message: 'Hubo un error, RIP server' })
+  }
 }
 
 export default handleGetNFTmetadata

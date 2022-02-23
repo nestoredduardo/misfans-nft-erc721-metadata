@@ -19,6 +19,7 @@
       "@database": ["database/db.ts"],
       "@components/*": ["components/*"],
       "@images/*": ["public/images/*"],
+      "@icons/*": ["public/icons/*"],
       "@utils/*": ["utils/*"]
     }
   },
