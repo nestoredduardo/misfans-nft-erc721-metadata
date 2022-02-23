@@ -8,19 +8,6 @@ import dividerIcon from '@icons/divider.svg'
 
 const Main: React.FC = () => {
   const [showAddBlock, setShowAddBlock] = useState(false)
-  const [showModal, setShowModal] = useState(false)
-  const [userNFTBasic, setUserNFTBasic] = useState<TNFTInput[]>([
-    {
-      address: '0x3CD266509D127d0Eac42f4474F57D0526804b44e',
-      tokenId: '6189',
-      standar: 'ERC721',
-      chain: 'POLY',
-    },
-  ])
-
-  const handleModal = () => {
-    setShowModal(!showModal)
-  }
 
   return (
     <>
@@ -42,10 +29,7 @@ const Main: React.FC = () => {
           }`}
         >
           <ul className="flex flex-col">
-            <li
-              onClick={handleModal}
-              className="flex items-center gap-3 border-b border-gray-500 border-opacity-40 p-3 hover:bg-black"
-            >
+            <li className="flex items-center gap-3 border-b border-gray-500 border-opacity-40 p-3 hover:bg-black">
               <div className="h-fit rounded-md border-2 border-gray-500 border-opacity-20 p-2">
                 <div className="relative h-6 w-6">
                   <Image src={nftIcon} layout="fill" />

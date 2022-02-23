@@ -1,0 +1,4 @@
+const ADD_NFT = 'ADD_NFT'
+const GET_NFT_METADATA = 'GET_NFT_METADATA'
+
+export { ADD_NFT, GET_NFT_METADATA }
