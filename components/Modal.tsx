@@ -12,6 +12,9 @@ type ModalProps = {
 }
 
 const Modal: React.FC<ModalProps> = ({ hideModal }) => {
+  const stopPropagation = (e: any) => {
+    e.stopPropagation()
+  }
   return (
     <section
       onClick={() => {
@@ -19,7 +22,10 @@ const Modal: React.FC<ModalProps> = ({ hideModal }) => {
       }}
       className="fixed z-10 flex min-h-screen min-w-full items-center justify-center bg-[rgba(0,0,0,.65)]"
     >
-      <div className="w-11/12 rounded-xl border border-gray-500 border-opacity-50 bg-black p-3">
+      <div
+        onClick={stopPropagation}
+        className="z-20 w-11/12 rounded-xl border border-gray-500 border-opacity-50 bg-black p-3"
+      >
         <div className="mb-2 flex items-center">
           <p className="font-medium">AÑADE NFTS A TU PERFIL</p>
           <button
@@ -37,8 +43,8 @@ const Modal: React.FC<ModalProps> = ({ hideModal }) => {
           La blockchain de los NFTs puede ser Ethereum o Polygon en los
           estándares ERC-721 y ERC-1155
         </p>
+        <AddNFTForm />
       </div>
-      <AddNFTForm />
     </section>
   )
 }

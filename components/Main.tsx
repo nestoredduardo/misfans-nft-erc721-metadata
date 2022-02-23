@@ -41,7 +41,7 @@ const Main: React.FC<MainProps> = ({ showModal }) => {
                 showModal()
                 setShowAddBlock(false)
               }}
-              className="flex items-center gap-3 border-b border-gray-500 border-opacity-40 p-3 hover:bg-black"
+              className="flex cursor-pointer items-center gap-3 border-b border-gray-500 border-opacity-40 p-3 hover:bg-black"
             >
               <div className="h-fit rounded-md border-2 border-gray-500 border-opacity-20 p-2">
                 <div className="relative h-6 w-6">
