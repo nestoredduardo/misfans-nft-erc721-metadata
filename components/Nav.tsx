@@ -18,7 +18,7 @@ const Nav: React.FC = () => {
     <nav className="overflow-x-auto border-b border-gray-500 border-opacity-50  px-3 py-4">
       <ul className="flex gap-1 xl:justify-center">
         <li
-          className={`flex items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
+          className={`flex cursor-pointer items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
             currentTab == 'BLOQUES' && 'bg-brand'
           }`}
           onClick={() => handleTabClick('BLOQUES')}
@@ -29,7 +29,7 @@ const Nav: React.FC = () => {
           <p className="text-sm font-normal">BLOQUES</p>
         </li>
         <li
-          className={`flex items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
+          className={`flex cursor-pointer items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
             currentTab == 'MONETIZACIÓN' && 'bg-brand'
           }`}
           onClick={() => handleTabClick('MONETIZACIÓN')}
@@ -40,7 +40,7 @@ const Nav: React.FC = () => {
           <p className="text-sm font-normal">MONETIZACIÓN</p>
         </li>
         <li
-          className={`flex items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
+          className={`flex cursor-pointer items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
             currentTab == 'SUSCRIPCIONES' && 'bg-brand'
           }`}
           onClick={() => handleTabClick('SUSCRIPCIONES')}
@@ -51,7 +51,7 @@ const Nav: React.FC = () => {
           <p className="text-sm font-normal">SUSCRIPCIONES</p>
         </li>
         <li
-          className={`flex items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
+          className={`flex cursor-pointer items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
             currentTab == 'NOTIFICACIÓN' && 'bg-brand'
           }`}
           onClick={() => handleTabClick('NOTIFICACIÓN')}
@@ -62,7 +62,7 @@ const Nav: React.FC = () => {
           <p className="text-sm font-normal">NOTIFICACIÓN</p>
         </li>
         <li
-          className={`flex items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
+          className={`flex cursor-pointer items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
             currentTab == 'ANALÍTICAS' && 'bg-brand'
           }`}
           onClick={() => handleTabClick('ANALÍTICAS')}
@@ -73,7 +73,7 @@ const Nav: React.FC = () => {
           <p className="text-sm font-normal">ANALÍTICAS</p>
         </li>
         <li
-          className={`flex items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
+          className={`flex cursor-pointer items-center justify-center gap-3 rounded-2xl px-9 py-2 ${
             currentTab == 'AJUSTES' && 'bg-brand'
           }`}
           onClick={() => handleTabClick('AJUSTES')}
