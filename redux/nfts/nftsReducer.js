@@ -2,6 +2,7 @@ import {
   ADD_NFT_METADATA,
   ADD_NFT_METADATA_ERROR,
   ADD_NFT_METADATA_SUCCESS,
+  HIDE_ERROR,
 } from './nftsType.ts'
 
 const initialState = {
@@ -52,7 +53,9 @@ const reducer = (state = initialState, action) => {
         }
       }
     case ADD_NFT_METADATA_ERROR:
-      return { ...state, error: true }
+      return { ...state, error: true, loading: false }
+    case HIDE_ERROR:
+      return { ...state, error: false }
     default:
       return state
   }

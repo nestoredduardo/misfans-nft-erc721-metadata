@@ -2,6 +2,7 @@ import {
   ADD_NFT_METADATA,
   ADD_NFT_METADATA_ERROR,
   ADD_NFT_METADATA_SUCCESS,
+  HIDE_ERROR,
 } from './nftsType.ts'
 
 const addNftMetadata =
@@ -40,4 +41,10 @@ const addNftMetadata =
     }
   }
 
-export { addNftMetadata }
+const hideError = () => (dispatch) => {
+  dispatch({
+    type: HIDE_ERROR,
+  })
+}
+
+export { addNftMetadata, hideError }

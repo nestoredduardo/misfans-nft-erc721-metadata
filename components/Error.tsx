@@ -1,4 +1,24 @@
-const Error: React.FC = () => {
+import { useEffect } from 'react'
+import { connect } from 'react-redux'
+
+import { hideError } from '@nftsActions'
+
+type ErrorTypes = {
+  hideError: Function
+}
+
+const Error: React.FC<ErrorTypes> = ({ hideError }) => {
+  useEffect(() => {
+    const timeId = setTimeout(() => {
+      // After 3 seconds set the show value to false
+      hideError()
+    }, 3000)
+
+    return () => {
+      clearTimeout(timeId)
+    }
+  }, [])
+
   return (
     <div
       className="relative rounded border border-red-400 bg-red-100 px-4 py-3 text-red-700"
@@ -6,9 +26,14 @@ const Error: React.FC = () => {
     >
       <strong className="font-bold">Ups!</strong>
       <span className="block sm:inline">
-        Hubo en error al comunicarse con la blockchain.
+        Hubo un error al comunicarse con la blockchain.
       </span>
-      <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
+      <span
+        onClick={() => {
+          hideError()
+        }}
+        className="absolute top-0 bottom-0 right-0 px-4 py-3"
+      >
         <svg
           className="h-6 w-6 fill-current text-red-500"
           role="button"
@@ -23,4 +48,8 @@ const Error: React.FC = () => {
   )
 }
 
-export default Error
+const mapDispatchToProps = {
+  hideError,
+}
+
+export default connect(null, mapDispatchToProps)(Error)
